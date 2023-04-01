@@ -30,6 +30,9 @@ const people = [
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
 export function myfilter() {
 
+	const result = inventors.filter(inventor => (inventor.year >1500 && inventor.year < 1600 );
+	return result;
+
 }
 
 // Array.prototype.map()
@@ -37,13 +40,18 @@ export function myfilter() {
 // Ex: For the first inventor the full name will be 'Albert Einstein'
 export function map() {
 
+	const map1 = inventors.map((inventor) =>{
+		 return (inventor.first + inventor.last)
+	});
+	return map1;
+
 }
 
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
-
+	return inventors.sort((a, b) =>  b.year - a.year);
 }
 
 
@@ -51,18 +59,24 @@ export function sort() {
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
 export function reduce() {
+	const sum = objects.reduce(
+  (accumulator, currentValue) => accumulator + ((currentValue.passed)-(currentValue.year)),
+  0,
+);
+	return sum;
 
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
+	return inventors.sort((a, b) =>  ((a.passed-a.year) - (b.passed-b.year)));
 
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
-
+	
 }
 
 // 7. Reduce Exercise
@@ -71,4 +85,10 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 
 export function reducedSum() {
     // Return an object containing transports as key and its number of occurances as the key's value
+	const myArrayWithNoDuplicates = data.reduce((accumulator, currentValue) => {
+  if (!accumulator.includes(currentValue)) {
+    return [...accumulator, currentValue];
+  }
+  return accumulator;
+}, []);
 }
